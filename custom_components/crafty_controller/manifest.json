@@ -1,0 +1,13 @@
+{
+    "domain": "crafty_controller",
+    "name": "Crafty Controller",
+    "codeowners": ["@Makhuta"],
+    "config_flow": true,
+    "dependencies": [],
+    "documentation": "https://github.com/Makhuta/homeassistant-crafty-controller",
+    "iot_class": "local_polling",
+    "issue_tracker": "https://github.com/Makhuta/homeassistant-crafty-controller/issues",
+    "requirements": ["crafty-controller-api>=0.1.2"],
+    "version": "0.1.0"
+  }
+  

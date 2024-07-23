@@ -1,0 +1,23 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "data": {
+            "name": "Name",
+            "username": "Username",
+            "password": "Password",
+            "host": "Crafty address",
+            "port": "Crafty port",
+            "ssl": "SSL"
+          }
+        }
+      },
+      "error": {
+        "failed_to_login": "Failed to Log-in"
+      },
+      "abort": {
+        "already_configured": "Address has already been added",
+        "failed_to_login": "Failed to Log-in"
+      }
+    }
+  }
