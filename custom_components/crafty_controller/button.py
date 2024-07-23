@@ -72,7 +72,7 @@ class CraftyServerButton(CraftyButtonEntity):
         self._unique_id = f'{self._host}_{self._port}_Crafty_Controller_server_{type.get("action")}_{server_id}'
         self._icon = type.get("icon")
         self._attr_entity_category = None
-        id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller'
+        id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller Server {type.get("name")} {server_id}'
         self.entity_id = f'button.{id}'.lower().replace(" ", "_")
         self._action = action_decorator(self._hass, server_id, type.get("action"))
         #self._action = lambda x: self.server_action(x, server_id, type.get("action"))

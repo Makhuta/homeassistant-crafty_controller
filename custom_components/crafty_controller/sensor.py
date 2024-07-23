@@ -89,5 +89,5 @@ class CraftyUserSensor(CraftySensorEntity):
         self._unit = None
         self._icon = "mdi:account"
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
-        id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller user {user_id}'
+        id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller User {user_id}'
         self.entity_id = f'sensor.{id}'.lower().replace(" ", "_")
