@@ -4,10 +4,10 @@
     "codeowners": ["@Makhuta"],
     "config_flow": true,
     "dependencies": [],
-    "documentation": "https://github.com/Makhuta/homeassistant-crafty-controller",
+    "documentation": "https://github.com/Makhuta/homeassistant-crafty_controller",
     "iot_class": "local_polling",
-    "issue_tracker": "https://github.com/Makhuta/homeassistant-crafty-controller/issues",
+    "issue_tracker": "https://github.com/Makhuta/homeassistant-crafty_controller/issues",
     "requirements": ["crafty-controller-api>=0.1.2"],
-    "version": "0.2.0"
+    "version": "0.2.1"
   }
   
