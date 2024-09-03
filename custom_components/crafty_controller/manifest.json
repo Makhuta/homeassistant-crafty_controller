@@ -7,7 +7,7 @@
     "documentation": "https://github.com/Makhuta/homeassistant-crafty_controller",
     "iot_class": "local_polling",
     "issue_tracker": "https://github.com/Makhuta/homeassistant-crafty_controller/issues",
-    "requirements": ["crafty-controller-api>=0.1.2"],
-    "version": "0.2.1"
+    "requirements": ["crafty-controller-api>=0.1.4"],
+    "version": "0.3.0"
   }
   

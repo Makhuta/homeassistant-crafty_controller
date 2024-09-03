@@ -8,7 +8,8 @@
             "password": "Password",
             "host": "Crafty address",
             "port": "Crafty port",
-            "ssl": "SSL"
+            "ssl": "SSL",
+            "verify_ssl": "Verify SSL"
           }
         }
       },

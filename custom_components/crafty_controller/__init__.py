@@ -11,7 +11,7 @@ from homeassistant.const import (
     )
 from crafty_controller_api import FailedToLogin
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_VERIFY_SSL
 from .coordinator import CraftyDataCoordinator
 from .helpers import setup_client
 
@@ -29,6 +29,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             config_entry.data[CONF_HOST],
             config_entry.data[CONF_PORT],
             config_entry.data[CONF_SSL],
+            config_entry.data[CONF_VERIFY_SSL],
         )
     except FailedToLogin as err:
         raise ConfigEntryNotReady("Failed to Log-in") from err

@@ -10,9 +10,10 @@ def setup_client(
     password: str,
     host: str,
     port: int,
-    ssl: bool
+    ssl: bool,
+    verify_ssl: bool
 ) -> Crafty:
-    client = Crafty(host, port, ssl, username, password)
+    client = Crafty(host, port, ssl, verify_ssl, username, password)
     return client
 
 def find_dict(list, key, value, default = None):
