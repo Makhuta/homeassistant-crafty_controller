@@ -3,6 +3,7 @@ from collections.abc import Callable
 from datetime import datetime
 
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.components.sensor import SensorEntity, SensorStateClass
@@ -95,7 +96,7 @@ class CraftyStateNumbersServersSensor(CraftySensorEntity):
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
         self.state_class = SensorStateClass.MEASUREMENT
         
-        self._entry_type = "service"
+        self._entry_type = DeviceEntryType.SERVICE
 
 class CraftyServerStateSensor(CraftySensorEntity):
     def __init__(self, coordinator: CraftyDataCoordinator, config_entry: ConfigEntry, server_id: int):
@@ -289,7 +290,7 @@ class CraftyNumbersRolesSensor(CraftySensorEntity):
         id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller Roles'
         self.entity_id = f'sensor.{id}'.lower().replace(" ", "_")
 
-        self._entry_type = "service"
+        self._entry_type = DeviceEntryType.SERVICE
 
 def find_user(users: list, id: int) -> str:
     for user in users:
@@ -393,7 +394,7 @@ class CraftyNumbersUsersSensor(CraftySensorEntity):
         id = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Crafty Controller Roles'
         self.entity_id = f'sensor.{id}'.lower().replace(" ", "_")
 
-        self._entry_type = "service"
+        self._entry_type = DeviceEntryType.SERVICE
 
 class CraftyUserCreatedSensor(CraftySensorEntity):
     def __init__(self, coordinator: CraftyDataCoordinator, config_entry: ConfigEntry, user_id: int):
