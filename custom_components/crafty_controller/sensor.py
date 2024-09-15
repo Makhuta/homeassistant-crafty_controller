@@ -20,7 +20,7 @@ from .entity import (
     CraftySensorEntity,
     CraftyServiceEntity,
     )
-from .helpers import find_dict
+from .helpers import find_dict, parse_size
 
 def is_online(data: dict[str, Any]) -> bool:
     for key, value in data.items():
@@ -144,7 +144,8 @@ class CraftyServerMemSensor(CraftySensorEntity):
         self._name = lambda x: f'{find_dict(x.get("servers"), "server_id", server_id).get("server_name", server_id) if find_dict(x.get("servers"), "server_id", server_id) else server_id} Memory'
         self._device_name = find_dict(self._coordinator.data.get("servers"), "server_id", server_id).get("server_name", server_id) if find_dict(self._coordinator.data.get("servers"), "server_id", server_id) else server_id
         self._model = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Server'
-        self._state = lambda x: (find_dict(x.get("servers"), "server_id", server_id).get("mem", 0)) if find_dict(x.get("servers"), "server_id", server_id) else 0
+        self._state = lambda x: parse_size(find_dict(x.get("servers"), "server_id", server_id).get("mem", "0"))[0] if find_dict(x.get("servers"), "server_id", server_id) else 0
+        self._unit = lambda x: parse_size(find_dict(x.get("servers"), "server_id", server_id).get("mem", "0"))[1] if find_dict(x.get("servers"), "server_id", server_id) else "B"
         self._unique_id = f'{self._host}_{self._port}_Crafty_Controller_server_mem_{server_id}'
         self._icon = "mdi:memory"
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
@@ -183,7 +184,8 @@ class CraftyServerWorldSizeSensor(CraftySensorEntity):
         self._name = lambda x: f'{find_dict(x.get("servers"), "server_id", server_id).get("server_name", server_id) if find_dict(x.get("servers"), "server_id", server_id) else server_id} World size'
         self._device_name = find_dict(self._coordinator.data.get("servers"), "server_id", server_id).get("server_name", server_id) if find_dict(self._coordinator.data.get("servers"), "server_id", server_id) else server_id
         self._model = f'{config_entry.data[CONF_NAME].capitalize() + " " if len(config_entry.data[CONF_NAME]) > 0 else ""}Server'
-        self._state = lambda x: (find_dict(x.get("servers"), "server_id", server_id).get("world_size", 0)) if find_dict(x.get("servers"), "server_id", server_id) else 0
+        self._state = lambda x: parse_size(find_dict(x.get("servers"), "server_id", server_id).get("world_size", "0"))[0] if find_dict(x.get("servers"), "server_id", server_id) else 0
+        self._unit = lambda x: parse_size(find_dict(x.get("servers"), "server_id", server_id).get("world_size", "0"))[1] if find_dict(x.get("servers"), "server_id", server_id) else "B"
         self._unique_id = f'{self._host}_{self._port}_Crafty_Controller_server_world_size_{server_id}'
         self._icon = "mdi:earth"
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
