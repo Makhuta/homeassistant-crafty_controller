@@ -62,7 +62,6 @@ class CraftyConfigFlow(ConfigFlow, domain=DOMAIN):
             except FailedToLogin as err:
                 errors = {'base': 'failed_to_login'}
             else:
-                _LOGGER.warn("here CF")
                 return self.async_create_entry(title=user_input[CONF_NAME] if len(user_input[CONF_NAME]) > 0 else DEFAULT_NAME, data=user_input)
 
         schema = self.add_suggested_values_to_schema(SCHEMA, user_input)
